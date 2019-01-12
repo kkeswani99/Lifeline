@@ -9,7 +9,8 @@ var express 	     = require("express"),
     Accident       = require("./models/accident"),
     Comment        = require("./models/comment"),
     User           = require("./models/user"),
-    seedDB         = require("./seeds")
+    Reports        = require('./models/reports'), 
+    seedDB         = require("./seeds");
 
 //Requiring Routes
 var commentRoutes    = require("./routes/comments"),
@@ -18,7 +19,9 @@ var commentRoutes    = require("./routes/comments"),
 
 //seedDB(); //seed the databse
 // mongodb://karan:karanyelpcamp30@ds227594.mlab.com:27594/karanyelpcamp
-mongoose.connect("mongodb://localhost/life_line");
+mongoose.connect("mongodb://localhost/life_line",{
+  useNewUrlParser: true
+});
 //mongoose.connect("mongodb://karan:karanyelpcamp30@ds227594.mlab.com:27594/karanyelpcamp");
 app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"));
@@ -33,7 +36,7 @@ app.use(require("express-session")({
   resave: false,
   saveUninitialized: false
 }));
-
+app.use(bodyParser.urlencoded({extended:true}));
 var port = process.env.PORT;
 
 app.use(passport.initialize());
@@ -62,11 +65,68 @@ app.get("/message",function(req,res){
   res.render("message");
 });
 
+app.get("/location",function(req,res){
+  res.render("location");
+});
+
 app.post("/message",function(req,res){
   res.render("messagesubmit");
 });
 
+app.get("/reports", function (req, res) {
+  // Get all campgrounds from DB
+  Reports.find({}, function (err, allReports) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("report/index", {
+        Reports: allReports
+      });
+    }
+  });
+});
 
+//CREATE - add new campground to DB
+app.post("/reports", function (req, res) {
+  // get data from form and add to campgrounds array
+  var location = req.body.location;
+  var image = req.body.image;
+  var desc = req.body.description;
+  var newReport = {
+    location: location,
+    image: image,
+    description: desc
+  }
+  // Create a new campground and save to DB
+  Reports.create(newReport, function (err, newlyCreated) {
+    if (err) {
+      console.log(err);
+    } else {
+      //redirect back to campgrounds page
+      res.redirect("/reports");
+    }
+  });
+});
+
+app.get("/reports/new", function (req, res) {
+  res.render("report/new");
+});
+
+// SHOW - shows more info about one campground
+app.get("/reports/:id", function (req, res) {
+  //find the campground with provided ID
+  Reports.findById(req.params.id).exec(function (err, reportPage) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(reportPage)
+      //render show template with that campground
+      res.render("report/show", {
+        report: reportPage
+      });
+    }
+  });
+});
 
 app.listen(port||3000,function(){
    console.log("Server has started!!!"); 

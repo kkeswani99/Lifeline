@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="form-group">
-        <a href="https://www.google.com/maps" target="_blank"><button class="btn btn-lg btn-primary btn-block" style="background-color: red; border-color: white; text-underline-position: none">Search for hospital nearby</button></a>    
+        <a id="loc" href="" target="_blank"><button class="btn btn-lg btn-primary btn-block" style="background-color: red; border-color: white; text-underline-position: none">Search for hospital nearby</button></a>    
     </div>    
     <div>
         <h1 style="text-align: center;">Report new accident</h1>
@@ -29,6 +29,28 @@
            
     </div>
 </div>
+<script>
+var loc = document.getElementById("loc");
+// var x = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } 
+  // else { 
+  //   x.innerHTML = "Geolocation is not supported by this browser.";
+  // }
+}
+getLocation();
+function showPosition(position) {
+    var url = "https://www.google.com/maps/search/hospital/@" + position.coords.latitude + "," + position.coords.longitude;
+    loc.setAttribute("href", url); 
+  // x.innerHTML = "Latitude: " + position.coords.latitude + 
+  // "<br>Longitude: " + position.coords.longitude;
+}
+</script>
 
 <% include ../partials/footer %>
 
+
+
+<!-- https://www.google.com/maps?q=28.5434217,77.19305949999999 -->

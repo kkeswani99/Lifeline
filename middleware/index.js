@@ -1,20 +1,20 @@
-var Campground = require("../models/campground");
+var Accident = require("../models/accident");
 var Comment = require("../models/comment");
 //all the middleware code goes here
 var middlewareObj = {};
 
-middlewareObj.CheckCampgroundOwnership = function(req,res,next){
+middlewareObj.CheckAccidentOwnership = function(req,res,next){
 	if(req.isAuthenticated())
 	{
-		Campground.findById(req.params.id, function(err,foundCampground){
+		Accident.findById(req.params.id, function(err,foundAccident){
 			if(err)
 			{
-				req.flash("error", "Campground not found");
+				req.flash("error", "Accident not found");
 				res.redirect("back");
 			}
 			else
 			{
-				if(foundCampground.author.id.equals(req.user._id))
+				if(foundAccident.author.id.equals(req.user._id))
 				{
 					next();
 				}

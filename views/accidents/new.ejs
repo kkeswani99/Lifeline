@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="form-group">
+        <a href="https://www.google.com/maps" target="_blank"><button class="btn btn-lg btn-primary btn-block" style="background-color: red; border-color: white; text-underline-position: none">Search for hospital nearby</button></a>    
+    </div>    
+    <div>
+        <h1 style="text-align: center;">Report new accident</h1>
+        <div class="container" style="width: 30%; margin: 25px auto;">
+            <form action="/accidents" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="name of victim">    
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="string" name="place" placeholder="place of accident">    
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="image" placeholder="image url">    
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="description" placeholder="reason">    
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!!</button>    
+                </div>
+            </form>
+             <a href="/accidents">Go Back</a>
+        </div>
+           
+    </div>
+</div>
+
+<% include ../partials/footer %>
+

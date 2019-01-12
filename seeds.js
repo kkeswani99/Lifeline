@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
-var Comment = require("./models/comment");
-var Campground = require("./models/campground");
+var mongoose  = require("mongoose");
+var Comment   = require("./models/comment");
+var Accident  = require("./models/accident");
 
 
 var data = [
@@ -25,23 +25,23 @@ var data = [
 function seedDB()
 {
 	//Remove all campgrounds
-	Campground.remove({}, function(err){
+	Accident.remove({}, function(err){
 	if(err)
 	{
 		console.log(err);
 	}
-	console.log("removed campgrounds");
+	console.log("removed accidents");
 
 		//add a few campgrounds
 		data.forEach(function(seed){
-		Campground.create(seed, function(err,campground){
+		Accident.create(seed, function(err,accident){
 			if(err)
 			{
 				console.log(err);
 			}
 			else
 			{
-				console.log("Added a campground");
+				console.log("Added an accident");
 				//create a comment
 				Comment.create({
 					text: "This place is great but i wish i had internet",
@@ -53,9 +53,9 @@ function seedDB()
 					}
 					else
 					{
-						campground.comments.push(comment);
-						campground.save();
-						console.log("Created a new comment");
+						accident.comments.push(comment);
+						accident.save();
+						console.log("Created a new accident");
 					}
 				});
 			}

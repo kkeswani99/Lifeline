@@ -1,30 +1,76 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>YelpCamp</title>
+        <title>Lifeline</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/main.css">
     </head>
     <body>
-        
-        <nav class="navbar navbar-expand-lg navbar-default">
+         <nav class="navbar navbar-dark navbar-expand-lg navbar-default" style="background-color: #F5F5F5; border-bottom: : 50px">
         <div class="container-fluid">
         <div class="navbar-header">
-            <a style="color: black" class="navbar-brand" href="/">YelpCamp</a>
+            <a href="https://mohfw.gov.in/"><img style="height: 50px; width: 50px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/1200px-Emblem_of_India.svg.png"></a>
+            <a style="color: black" class="navbar-brand" href="http://mohfw.gov.in">Ministry of Health and Family Welfare </a>
         </div>
-        <div>
+</nav>
+
+<nav><marquee><strong>Call 1091 for emergency</strong></marquee></nav>
+       
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0066ff;">
+  <!-- <a class="navbar-brand" href="#" style="color: white">Why DTU</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"style="color: white">Mission <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/statistics"style="color: white">Statistics</a>
+      </li>
+      <li class="nav-item dropdown" style="color: white">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: white"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Procedures
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="/reports" style="color: white">Current Issues</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" style="color: white">Settle Insurance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" style="color: white">About Us</a>
+      </li>
+    </ul>
+    <div>
             <ul class="nav navbar-nav navbar-right" style="display: flex; justify-content:space-between;">
                     <% if(!currentUser){ %>
-                    <li style="margin-right: 10px;"><a style="color: black" href="/login"> Login </a></li>
-                    <li><a style="color: black" href="/register"> Sign Up </a></li>
+                    <li style="margin-right: 10px;"><a style="color: white" href="/login"><h5>Hospital/Police Login</h5></a></li>
+                    <li><a style="color: white" href="/register"> <h5>Hospital/Police Sign Up </h5></a></li>
                 <% } else{ %>
-                    <li><a style="color: black; margin-right: 10px" href="#">Signed In As <%= currentUser.username %></a></li>
-                    <li><a style="color: black" href="/logout"> Log Out </a></li>
+                    <li><a style="color: white; margin-right: 10px" href="#">Signed In As <%= currentUser.username %></a></li>
+                    <li><a style="color: white" href="/logout"> Log Out </a></li>
                 <% } %>
             </ul>
         </div>
     </div>
+
+  </div>
 </nav>
+
+<div class="container">
+    <br>
+    <br>
+</div>
 
 <div class="container">
     <% if(error && error.length > 0) { %>

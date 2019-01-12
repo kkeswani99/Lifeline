@@ -36,22 +36,22 @@ body {
   animation: imageAnimation 50s linear infinite; 
 }
 .slideshow li:nth-child(1) { 
-  background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+  background-image: url(https://media.istockphoto.com/photos/dark-texture-background-of-black-fabric-picture-id185005145?k=6&m=185005145&s=612x612&w=0&h=8xOoEtJcuHQv1F60A3BuibF8q7wqIeuFB4VINRmAqAI=) 
 }
 .slideshow li:nth-child(2) { 
-  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+  background-image: url(https://media.istockphoto.com/photos/dark-texture-background-of-black-fabric-picture-id185005145?k=6&m=185005145&s=612x612&w=0&h=8xOoEtJcuHQv1F60A3BuibF8q7wqIeuFB4VINRmAqAI=);
   animation-delay: 10s; 
 }
 .slideshow li:nth-child(3) { 
-  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  background-image: url(https://media.istockphoto.com/photos/dark-texture-background-of-black-fabric-picture-id185005145?k=6&m=185005145&s=612x612&w=0&h=8xOoEtJcuHQv1F60A3BuibF8q7wqIeuFB4VINRmAqAI=);
   animation-delay: 20s; 
 }
 .slideshow li:nth-child(4) { 
-  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+  background-image: url(https://media.istockphoto.com/photos/dark-texture-background-of-black-fabric-picture-id185005145?k=6&m=185005145&s=612x612&w=0&h=8xOoEtJcuHQv1F60A3BuibF8q7wqIeuFB4VINRmAqAI=);
   animation-delay: 30s; 
 }
 .slideshow li:nth-child(5) { 
-  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+  background-image: url(https://media.istockphoto.com/photos/dark-texture-background-of-black-fabric-picture-id185005145?k=6&m=185005145&s=612x612&w=0&h=8xOoEtJcuHQv1F60A3BuibF8q7wqIeuFB4VINRmAqAI=);
   animation-delay: 40s; 
 }
 @keyframes imageAnimation { 

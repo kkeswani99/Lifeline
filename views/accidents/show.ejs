@@ -14,21 +14,30 @@
 
 		<div class="col-md-9">
 			<div class="thumbnail">
-				<img class="img-responsive" src="<%= campground.image%>">
+				<img class="img-responsive" src="<%= accident.image%>" style="height: 150px; width: 150px;margin-left: 400px">
+				<br>
+				<br>
+				<br>
+				<br>
 				<div class="caption-full">
-					<h4 class="float-right">$<%= campground.price %>/night</h4>
-					<h4>
-						<a href="www.google.com"><%=campground.name%></a>
-					</h4>
-					<p><%= campground.description %></p>
+					<h5>Name of Victim</h5>
+					<p><%=accident.name%></p>
+					<br>
+					<h5>Accident Place</h5>
+					<p><%= accident.place %></p>
+					<br>
+					<h5>Accident Description</h5>
+					<p><%= accident.description %></p>
 					<p>
-					<em>Submitted By 
-							<%=campground.author.username%></em>
-					</p>
-					<% if( currentUser && campground.author.id.equals(currentUser._id)) {%>
-						<a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+						<br>
 
-						<form id="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+					<em>Submitted By 
+							<%=accident.author.username%></em>
+					</p>
+					<% if( currentUser && accident.author.id.equals(currentUser._id)) {%>
+						<a class="btn btn-warning" href="/accidents/<%= accident._id %>/edit">Edit</a>
+
+						<form id="delete-form" action="/accidents/<%= accident._id %>?_method=DELETE" method="POST">
 							<button class="btn btn-danger">Delete</button>
 						</form>
 					<% } %>
@@ -39,10 +48,10 @@
 
 			<div class="well">
 				<div class="text-right">
-					<a class="btn btn-success" href = "/campgrounds/<%= campground._id%>/comments/new">Add New Comment</a>
+					<a class="btn btn-success" href = "/accidents/<%= accident._id%>/comments/new">Add New Comment</a>
 				</div>
 				<hr>
-					<% campground.comments.forEach(function(comment){ %>
+					<% accident.comments.forEach(function(comment){ %>
 					<div class="row">
 						<div class="col-md-12">
 							<strong><%= comment.author.username %></strong>
@@ -54,11 +63,11 @@
 							<% if( currentUser && comment.author.id.equals(currentUser._id)) {%>
 
 
-							<a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">
+							<a class="btn btn-xs btn-warning" href="/accidents/<%= accident._id %>/comments/<%= comment._id %>/edit">
 							Edit
 							</a>
 
-							<form id="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+							<form id="delete-form" action="/accidents/<%= accident._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
 								<input type="submit" class="btn btn-xs btn-danger" value="Delete">
 							</form>
 							<% } %>
